@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>KPZ</title>
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center py-3 mb-3 bg-white border-bottom shadow-sm">
+        <div class="container-fluid">
+            <img style="min-width: 90px;" src="./images/logo-kpz.jpg" class="img-fluid" alt="Logo KPZ" width="10%">
+            <!-- <h5 class="my-0 mr-md-auto font-weight-normal">Kinderpostzegels</h5> -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="mt-5 mb-4 text-primary">Welkom in de kinderpostzegels webshop</h3>
+                <h5 class="mb-3 mb-sm-4">Uw bestelling</h5>
+                <form>
+                    <div class="form-group row" id="stamps-row">
+                        <label for="stamps" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Kinderpostzegels</label>
+                        <div class="col-4 col-sm-2">
+                            <input type="number" name="p1" class="form-control" id="stamps" value="" disabled>
+                        </div>
+                        <div class="col-4 col-sm-3 col-md-2 col-xl-1 pr-0">
+                            <input type="text" class="form-control-plaintext" disabled id="stamps-price" value="">
+                        </div>
+                        <div class="col-1 col-sm-1 px-0">
+                            <div class="form-control-plaintext text-center">&#61;</div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-2 col-xl-1 pl-0">
+                            <input type="text" class="form-control-plaintext text-right" disabled id="stamps-order-price" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row" id="cards-row">
+                        <label for="cards" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Kaarten</label>
+                        <div class="col-4 col-sm-2">
+                            <input type="number" name="p2" class="form-control" id="cards" value="" disabled>
+                        </div>
+                        <div class="col-4 col-sm-3 col-md-2 col-xl-1 pr-0">
+                            <!-- <div class="form-control-plaintext" id="cards-price">&agrave; &euro; 9,98</div> -->
+                            <input type="text" class="form-control-plaintext" disabled id="cards-price" value="">
+                        </div>
+                        <div class="col-1 col-sm-1 px-0">
+                            <div class="form-control-plaintext text-center">&#61;</div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-2 col-xl-1 pl-0">
+                            <input type="text" class="form-control-plaintext text-right" id="cards-order-price" value="" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="bag-row">
+                        <label for="bag" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Pipi Langkous tas</label>
+                        <div class="col-4 col-sm-2">
+                            <input type="number" name="p3" class="form-control" id="bag" value="" disabled>
+                        </div>
+                        <div class="col-4 col-sm-3 col-md-2 col-xl-1 pr-0">
+                            <input type="text" class="form-control-plaintext" disabled id="bags-price" value="">
+                        </div>
+                        <div class="col-1 col-sm-1 px-0">
+                            <div class="form-control-plaintext text-center">&#61;</div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-2 col-xl-1 pl-0">
+                            <input type="text" class="form-control-plaintext text-right" id="bags-order-price" value="" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-8 offset-4 col-md-5 offset-md-5 col-lg-5 offset-lg-4 col-xl-3">
+                            <hr class="border-top border-primary">
+                            <strong><input type="text" class="form-control-plaintext text-right" id="total-order-price" value="0" disabled></strong>
+                            <input type="hidden" name="ac" id="ac" value="">
+                            <button class="btn btn-primary float-right my-4" type="submit" disabled>Afrekenen</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        //This function gets the parameters from the URL and sets variables for the fields to be pre-filled
+        function getParm(name)
+        {
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.href);
+        
+        //set variables for each of the fields you wish to pre-file
+        //reference them by the ID you found for the field when viewing the source
+        StampsField = document.getElementById("stamps");
+        CardsField = document.getElementById("cards");
+        BagsField = document.getElementById("bag");
+        AcField = document.getElementById("ac");
+
+        // StampsPrice = 12.80;
+        // StampsPriceDisplay = document.getElementById("stamps-price").innerText ="\u20AC" + " " + StampsPrice;
+
+        if(results == null)
+            return "";
+        else
+            return results[1];
+        }
+
+        //This function executes the function above and set the values in the fields
+        window.onload=function execParm() {
+            var p1 = getParm('p1');
+            var p2 = getParm('p2');   
+            var p3 = getParm('p3');
+            var ac = getParm('ac');
+            StampsField.value = p1;
+            CardsField.value = p2;
+            BagsField.value = p3;
+            AcField.value = ac;
+
+            StampsPrice = 12.40;
+            StampsPriceDisplay = document.getElementById("stamps-price").value = "\u00E0" + " " + "\u20AC" + " " + StampsPrice.toFixed(2).toString().replace(/[.]/, ",");
+            StampsOrderPrice = StampsField.value * Number(StampsPrice);
+            StampsOrderPriceDisplay = document.getElementById("stamps-order-price").value = "\u20AC" + " " + StampsOrderPrice.toFixed(2).toString().replace(/[.]/, ",");
+
+            CardsPrice = 9.98;
+            CardsPriceDisplay = document.getElementById("cards-price").value = "\u00E0" + " " + "\u20AC" + " " + CardsPrice.toFixed(2).toString().replace(/[.]/, ",");
+            CardsOrderPrice = CardsField.value * Number(CardsPrice);
+            CardsOrderPriceDisplay = document.getElementById("cards-order-price").value = "\u20AC" + " " + CardsOrderPrice.toFixed(2).toString().replace(/[.]/, ",");
+            //console.log(CardsOrderPrice);
+
+            BagsPrice = 7.99;
+            BagsPriceDisplay = document.getElementById("bags-price").value = "\u00E0" + " " + "\u20AC" + " " + BagsPrice.toFixed(2).toString().replace(/[.]/, ",");
+            BagsOrderPrice = BagsField.value * Number(BagsPrice);
+            BagsOrderPriceDisplay = document.getElementById("bags-order-price").value = "\u20AC" + " " + BagsOrderPrice.toFixed(2).toString().replace(/[.]/, ",");
+            
+            TotalPrice = StampsOrderPrice + CardsOrderPrice + BagsOrderPrice;
+            TotalPriceDisplay = document.getElementById("total-order-price").value = "\u20AC" + " " + TotalPrice.toFixed(2).toString().replace(/[.]/, ",");
+            //console.log(TotalPrice);
+        }
+    </script>
+</body>
+</html>
