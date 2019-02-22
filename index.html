@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>KPZ</title>
+    <link rel=icon href="./images/favicon.ico" type="image/x-icon">
+    <title>KPZ webshop</title>
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center py-3 mb-3 bg-white border-bottom shadow-sm">
         <div class="container-fluid">
             <img style="min-width: 90px;" src="./images/logo-kpz.jpg" class="img-fluid" alt="Logo KPZ" width="10%">
-            <!-- <h5 class="my-0 mr-md-auto font-weight-normal">Kinderpostzegels</h5> -->
         </div>
     </div>
     <div class="container">
@@ -19,7 +19,7 @@
             <div class="col-12">
                 <h3 class="mt-5 mb-4 text-primary">Welkom in de kinderpostzegels webshop</h3>
                 <h5 class="mb-3 mb-sm-4">Uw bestelling</h5>
-                <form method="" action="/thanx.html">
+                <form method="" action="/webshop/thanx.html">
                     <div class="form-group row" id="stamps-row">
                         <label for="stamps" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Kinderpostzegels</label>
                         <div class="col-4 col-sm-2">
@@ -41,7 +41,6 @@
                             <input type="number" name="p2" class="form-control" id="cards" value="" disabled>
                         </div>
                         <div class="col-4 col-sm-3 col-md-2 col-xl-1 pr-0">
-                            <!-- <div class="form-control-plaintext" id="cards-price">&agrave; &euro; 9,98</div> -->
                             <input type="text" class="form-control-plaintext" disabled id="cards-price" value="">
                         </div>
                         <div class="col-1 col-sm-1 px-0">
@@ -97,9 +96,6 @@
         BagsField = document.getElementById("bag");
         AcField = document.getElementById("ac");
 
-        // StampsPrice = 12.80;
-        // StampsPriceDisplay = document.getElementById("stamps-price").innerText ="\u20AC" + " " + StampsPrice;
-
         if(results == null)
             return "";
         else
@@ -126,7 +122,6 @@
             CardsPriceDisplay = document.getElementById("cards-price").value = "\u00E0" + " " + "\u20AC" + " " + CardsPrice.toFixed(2).toString().replace(/[.]/, ",");
             CardsOrderPrice = CardsField.value * Number(CardsPrice);
             CardsOrderPriceDisplay = document.getElementById("cards-order-price").value = "\u20AC" + " " + CardsOrderPrice.toFixed(2).toString().replace(/[.]/, ",");
-            //console.log(CardsOrderPrice);
 
             BagsPrice = 7.99;
             BagsPriceDisplay = document.getElementById("bags-price").value = "\u00E0" + " " + "\u20AC" + " " + BagsPrice.toFixed(2).toString().replace(/[.]/, ",");
@@ -135,7 +130,6 @@
             
             TotalPrice = StampsOrderPrice + CardsOrderPrice + BagsOrderPrice;
             TotalPriceDisplay = document.getElementById("total-order-price").value = "\u20AC" + " " + TotalPrice.toFixed(2).toString().replace(/[.]/, ",");
-            //console.log(TotalPrice);
         }
     </script>
 </body>
