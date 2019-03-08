@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel=icon href="./images/favicon.ico" type="image/x-icon">
     <title>KPZ webshop</title>
+    <style>
+        .text-primary,
+        .border-primary {
+            color: #552e91 !important;
+        }
+        .btn-primary {
+            background-color: #552e91 !important;
+            border-color: #552e91 !important;
+        }
+        hr.border-primary {
+            border-color: #552e91 !important;
+        }
+    </style>
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center py-3 mb-3 bg-white border-bottom shadow-sm">
@@ -18,7 +31,9 @@
         <div class="row">
             <div class="col-12">
                 <h3 class="mt-5 mb-4 text-primary">Welkom in de kinderpostzegels webshop</h3>
-                <h5 class="mb-3 mb-sm-4">Uw bestelling</h5>
+                <p><strong class="text-secondary">U heeft een bestelling geplaatst via onze agent <span class="text-primary" id="sp"></span></strong></p>
+                <p><strong class="text-secondary">Uw gegevens: <span class=" text-primary" id="i"></span></strong></p>
+                <h5 class="mb-2 mb-sm-3 mt-4 text-primary">Uw bestelling</h5>
                 <form method="" action="/webshop/thanx.html">
                     <div class="form-group row" id="stamps-row">
                         <label for="stamps" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Kinderpostzegels</label>
@@ -108,10 +123,14 @@
             var p2 = getParm('p2');   
             var p3 = getParm('p3');
             var ac = getParm('ac');
+            var i = getParm('i');
             StampsField.value = p1;
             CardsField.value = p2;
             BagsField.value = p3;
             AcField.value = ac;
+
+            EmailDisplay = document.getElementById("i").innerText = i;
+            SalesPerson = document.getElementById("sp").innerText = ac;
 
             StampsPrice = 12.40;
             StampsPriceDisplay = document.getElementById("stamps-price").value = "\u00E0" + " " + "\u20AC" + " " + StampsPrice.toFixed(2).toString().replace(/[.]/, ",");
